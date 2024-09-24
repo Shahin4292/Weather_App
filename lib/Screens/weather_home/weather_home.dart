@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/Model/weather_model.dart';
 import 'package:weather_app/Services/services.dart';
 
@@ -30,6 +31,8 @@ class _WeatherHomeState extends State<WeatherHome> {
 
   @override
   Widget build(BuildContext context) {
+    String formattedDate = DateFormat('EEEE D, MMMM, yyyy').format(DateTime.now());
+    String formattedTime = DateFormat('hh:mm a').format(DateTime.now());
     return Scaffold(
       backgroundColor: const Color(0xFF676BD0),
       body: Padding(
@@ -40,6 +43,8 @@ class _WeatherHomeState extends State<WeatherHome> {
             Center(
               child: WeatherDetails(
                 weather: weatherInfo,
+                formattedDate: 'formattedDate',
+                formattedTime: 'formattedTime',
               ),
             )
           ],
